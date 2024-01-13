@@ -6,6 +6,7 @@ import com.hackathon.fizz_buzz.model.response.MaxHitResponseDTO;
 import com.hackathon.fizz_buzz.repository.FizzBuzzRequestRepository;
 import com.hackathon.fizz_buzz.service.StatisticsService;
 import com.hackathon.fizz_buzz.util.FizzBuzzUtility;
+import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.scheduling.annotation.Async;
@@ -26,6 +27,7 @@ public class StatisticsServiceImpl implements StatisticsService {
 
     @Override
     @Async
+    @Transactional
     public void saveRequestForStatistics(FizzBuzzRequestDTO request) {
         log.info("Fetching the entity for request from db {}", request);
         FizzBuzzRequestEntity fizzBuzzRequestEntity = fizzBuzzRequestRepository.findByInt1AndInt2AndLimitAndStr1AndStr2(request.getInt1(),
