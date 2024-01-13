@@ -1,6 +1,6 @@
 spring:
   datasource:
-    url: jdbc:h2:file:./src/main/resources/db/fizz_buzz
+    url: jdbc:h2:file:./db/fizz_buzz
     driverClassName: org.h2.Driver
     username: sa
     password: password
